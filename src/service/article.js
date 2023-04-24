@@ -12,7 +12,7 @@ export const articleApi = createApi({
         "X-RapidAPI-Host",
         "article-extractor-and-summarizer.p.rapidapi.com"
       );
-      headers.set("content-type", "application/octet-stream");
+      //   headers.set("content-type", "application/octet-stream");
 
       return headers;
     },
@@ -22,7 +22,20 @@ export const articleApi = createApi({
       query: (params) =>
         `summarize?url=${encodeURIComponent(params.articleUrl)}&length=10`,
     }),
+
+    getTextSummary: builder.mutation({
+      query: (params) => ({
+        url: `/summarize-text`,
+        method: "POST",
+        body: {
+          text: params.data,
+        },
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }),
+    }),
   }),
 });
 
-export const { useLazyGetSummaryQuery } = articleApi;
+export const { useGetTextSummaryMutation, useLazyGetSummaryQuery } = articleApi;

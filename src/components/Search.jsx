@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { copy, linkIcon, loader, tick } from "../assets";
+import { copy, linkIcon, loader, tick, send } from "../assets";
 import { useLazyGetSummaryQuery } from "../service/article";
 import Summary from "./Summary";
 
@@ -81,10 +81,14 @@ const Search = () => {
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             onKeyDown={handleKeyDown}
             required
-            className="url_input peer" // When you need to style an element based on the state of a sibling element, mark the sibling with the peer class, and use peer-* modifiers to style the target element
+            className="url_input" // When you need to style an element based on the state of a sibling element, mark the sibling with the peer class, and use peer-* modifiers to style the target element
           />
           <button type="submit" className="submit_btn">
-            <p>↵</p>
+            <img
+              src={send}
+              alt="link-icon"
+              className="absolute left-0 my-2 ml-2 w-5"
+            />
           </button>
         </form>
 
