@@ -29,9 +29,7 @@ const Header = () => {
 
       <h1 className="head_text">
         Simplify your reading with <br className="max-md:hidden" />
-        <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 inline-block text-transparent bg-clip-text">
-          GPT-4 summarization
-        </span>
+        <span className="purple_gradient">GPT-4 summarization</span>
       </h1>
       <h2 className="desc">
         Get quick and accurate summaries of any text or webpage with our tool
